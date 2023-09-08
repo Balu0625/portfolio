@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-image: url('{% static '/movire.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        #navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .content-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            color: #ddd;
+        }
+
+        .movie-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .movie-cast {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .movie-synopsis {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .movie-info {
+            max-width: 620px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .movie-info hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 10px 0;
+        }
+        .back-button {
+            margin-top: 15px;
+        }
+
+        .back-button a {
+            background-color: #ccc;
+            color: #000;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button a:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body style="background-image:url('{% static '/fp.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+    <div id="navbar">
+        <a href="/">Home</a>
+        <span style="font-weight: bold;">Movie Recommendations</span>
+    </div>
+    <div class="content-container">
+        {% block content %}
+            <div class="movie-info">
+                <ul type="none">
+                    {% for movie in gen %}
+                        <li>
+                            <h3 class="movie-title">{{ movie.title }}</h3>
+                            <p class="movie-cast"><strong>Rating:</strong> {{ movie.rating }}</p>
+                            <p class="movie-synopsis"><strong>Synopsis:</strong> {{ movie.synopsis }}</p>
+                            <p class="movie-cast"><strong>Cast:</strong> {{ movie.cast }}</p>
+                            <hr>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endblock %}
+        <div class="back-button">
+            <a href="#" onclick="window.history.back();">Back</a>
+        </div>
+    </div>
+</body>
+</html>

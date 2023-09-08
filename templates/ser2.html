@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendations</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #000;
+        }
+
+        #navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        #navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        #main-content {
+            margin-top: 50px;
+        }
+
+        #genres-form {
+            margin: 0 auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff61;
+            margin-top: 20px;
+        }
+
+        #genres-input {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        #genres-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        #submit-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            margin-top: 15px;
+        }
+
+        .back-button a {
+            background-color: #ccc;
+            color: #000;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button a:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body style="background-image:url('{% static '/joel.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+    <div id="navbar">
+        <a href="/">Home</a>
+        <span style="font-weight: bold;">Movie Recommendations</span>
+    </div>
+    <div id="main-content">
+        <form action="moviere" id="genres-form">
+            <label for="genres-input">Enter Your Favorite Genre:</label><br>
+            <input type="text" id="genres-input" name="genres" placeholder="e.g., Action /Adventure.."><br>
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+        <div class="back-button">
+            <a href="#" onclick="window.history.back();">Back</a>
+        </div>
+    </div>
+</body>
+</html>

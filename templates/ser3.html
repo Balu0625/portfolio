@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diary App</title>
+  <style>
+    /* Some basic styling for demonstration purposes */
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      background-color: #f6f6f6;
+      margin: 0;
+      display: grid;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #ff714a;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav h1 {
+      color: #fff;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      max-width: 700px;
+      padding: 20px;
+      margin-bottom: 20px; /* Add margin at the bottom */
+      background:inherit;
+    }
+
+    .left-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .left-container label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .left-container textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      background:inherit;
+    }
+
+    .left-container button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #ff714a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .left-container button:hover {
+      background-color: #e66c3e;
+    }
+
+    .view-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .view-button:hover {
+      background-color: #0056b3;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 10px; /* Adjust margin for spacing */
+    }
+
+    .back-button a {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body style="background-image:url('{% static '/diary_f12.png' %}'); background-repeat: no-repeat; background-size: cover;">
+  <nav>
+    <h1>Diary App</h1>
+  </nav>
+  
+  <div class="center-container">
+    <div class="container">
+      <div class="left-container">
+        <form action="{% url 'diary' %}">
+          <label for="diary-entry">Diary Entry:</label>
+          <textarea style="color:white;"id="diary-entry" name="diary-entry" rows="10" cols="50"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+        <a href="/services/diary/entries"><button class="view-button">View Entries</button></a>
+      </div>
+      <br>
+      <div class="back-button">
+        <a href="/services/">Back</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

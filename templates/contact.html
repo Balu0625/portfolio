@@ -1,0 +1,136 @@
+{% extends 'main.html' %}
+{% block title %}Contact{% endblock title %}
+
+{% load static %}
+
+{% block head %}
+    <style>
+        body {
+            background-image: url('{% static 'contact.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid white;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: white;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+{% endblock head %}
+
+{% block body %}
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <img src="{% static 'me.jpg' %}" alt="Profile Picture" class="profile-img">
+        <hr>
+        <ul class="social-icons">
+            <li><a href="https://www.hackerrank.com/balasubrahmany13" target="blank"><img src="{% static 'hackerrank.png' %}" alt="hack" width="40" height="40"></a></li>
+            {% comment %} <li><a href="https://twitter.com/i/flow/login" target="blank"><img src="{% static 'twitter.png' %}" alt="Twitter" width="40" height="40"></a></li> {% endcomment %}
+            <li><a href="https://www.linkedin.com/in/balasubrahmanyeswara-maddala-139a45264/" target="blank"><img src="{% static 'linkedin.png' %}" alt="LinkedIn" width="40" height="40"></a></li>
+            {% comment %} <li><a href="https://www.instagram.com/" target="blank"><img src="{% static 'instagram.png' %}" alt="Instagram" width="40" height="40"></a></li> {% endcomment %}
+        </ul>
+        <hr>
+        <ul class="contact-info" type="none">
+            <li>Email: balasubrahmanyam2506@gmail.com</li>
+            <li>Address: Post Office Road, KrishnaLanka, Vijayawada, India</li>
+            <li>Phone: +91 7995715517</li>
+        </ul>
+        <form action="submitted/" method="POST">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <center><input type="submit" value="Submit"></center>
+        </form>
+    </div>
+    <br>
+    <br>
+</body>
+{% endblock body %}

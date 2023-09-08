@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 50px;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .section {
+            max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(245, 245, 245, 0.01);
+    border-radius: 10px;
+    
+          }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff714a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .result {
+            font-size: 18px;
+            
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body style="background-image:url('{% static '/rps.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+    <div class="section">
+    
+    <h1>Rock Paper Scissors</h1>
+
+    <script>
+        function playGame() {
+            var choices = ["Rock", "Paper", "Scissors"];
+            var userChoice = parseInt(prompt("Enter (1) for Rock, (2) for Paper, or (3) for Scissors"));
+            var computerChoice = Math.floor(Math.random() * 3) + 1;
+    
+            var userChoiceText = "";
+            var computerChoiceText = "";
+    
+            if (userChoice === 1) {
+                userChoiceText = "Rock";
+            } else if (userChoice === 2) {
+                userChoiceText = "Paper";
+            } else if (userChoice === 3) {
+                userChoiceText = "Scissors";
+            } else {
+                userChoiceText = "Invalid choice";
+            }
+    
+            if (computerChoice === 1) {
+                computerChoiceText = "Rock";
+            } else if (computerChoice === 2) {
+                computerChoiceText = "Paper";
+            } else if (computerChoice === 3) {
+                computerChoiceText = "Scissors";
+            }
+    
+            var resultText = "";
+            if (userChoice === 1 && computerChoice === 3 ||
+                userChoice === 2 && computerChoice === 1 ||
+                userChoice === 3 && computerChoice === 2) {
+                resultText = "You won! :-)";
+                document.getElementById("result").style.color = "green"; // Green color for win
+            } else if (userChoice === computerChoice) {
+                resultText = "It's a tie :-/";
+                document.getElementById("result").style.color = "yellow"; // Yellow color for tie
+            } else {
+                resultText = "You lost! :-(";
+                document.getElementById("result").style.color = "red"; // Red color for loss
+            }
+    
+            document.getElementById("user-choice").textContent = "Your entered choice is: " + userChoiceText;
+            document.getElementById("computer-choice").textContent = "The computer's choice is: " + computerChoiceText;
+            document.getElementById("result").textContent = resultText;
+        }
+    </script>
+    
+    <button onclick="playGame()">Play</button>
+
+    <div id="user-choice" class="result"></div>
+    <div id="computer-choice" class="result"></div>
+    <div id="result" class="result"><b><b></b><b></b></b></div>
+
+</div>
+</body>
+
+</html>

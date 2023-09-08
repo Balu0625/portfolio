@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+
+  <style>
+    .tab {
+      display: inline-block;
+      margin-left: 40px;
+  }
+
+    /* CSS for the navigation bar */
+    .navbar {
+      background-color: #f1f1f1;
+      overflow: hidden;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        
+  
+  color:white;
+      }
+    .navbar a {
+      float: right;
+      color: #555;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .navbar a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    .navbar .left-side {
+      float: left;
+    }
+.marquee-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Adjust the height as needed */
+    }
+
+  </style>
+
+
+</head>
+<body style="background-image:url('{% static '/bgimg1.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+
+  <div class="navbar">
+    <div class="left-side">
+      <a href="#portfolio">Portfolio</a>
+    </div>
+    <a href="/services">Services</a>
+    <a href="/contact">Contact</a>
+    <a href="/about">About</a>
+    <a href="/">Home</a>
+  </div>
+
+
+  <marquee behavior="scroll" direction="up" height="600" onmouseover="this.stop();" onmouseout="this.start();">
+    <div style="padding: 20px;">
+      <font face="Trebuchet MS" color="white" size="5">
+        <center>
+          <p>
+            Hey there,<br> I'm Balasubrahmanyeswara Rao Maddala, a passionate Computer Science enthusiast. <br> Proficient in Python, and Java. I've crafted web solutions<br> like Portfolio,Library Management System using Django,<br>My toolkit isn't just technical—I'm a creative problem solver, <br>an effective communicator, efficient team player and enthusiastic hard worker.<br> 
+          </p>
+          <p>
+           <img src="{% static '/python.png' %}" alt="Image 1" width="80" height="80" style="margin-right: 30px;"><span class="tab"></span>
+           <img src="{% static '/java-removebg-preview.png' %}" alt="Image 3" width="80" height="80" style="margin-right: 30px;"><span class="tab"></span>
+          <img src="{% static '/mysql-removebg-preview.png' %}" alt="Image 2" width="80" height="80" style="margin-right: 30px;"><span class="tab"></span>
+         <img src="{% static '/html.png' %}" alt="Image 3" width="80" height="80">
+            <br>
+            <br>
+            <img src="{% static '/boo.png' %}" alt="Image 3" width="150" height="80"style="margin-right: 10px;"><span class="tab"></span>
+            <img src="{% static '/pandas.png' %}" alt="Image 3" width="170" height="80"style="margin-right: 10px;"><span class="tab"></span>
+            <img src="{% static '/numpy.png' %}" alt="Image 3" width="150" height="80"style="margin-right: 10px;"><span class="tab"></span>
+        </p>
+        
+        </center>
+      </font>
+    </div>
+  </marquee>
+  
+
+
+
+</body>
+</html>
+

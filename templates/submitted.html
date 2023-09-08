@@ -1,0 +1,72 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block head %}
+<style>body {
+    background
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    margin-bottom: 20px;
+  }
+  
+  .details p {
+    line-height: 1.5;
+  }
+  
+  .separator {
+    height: 1px;
+    background-color: #ddd;
+    border: none;
+    margin: 20px 0;
+  }
+  
+  .center {
+    text-align: center;
+  }
+</style>
+  {% endblock head %}
+
+
+  {% block body %}
+  <body style="background-image:url('{% static '/fp.jpg' %}');background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: black;">
+  <br>
+  <div class="container">
+    <div class="heading">
+      Details submitted successfully
+    </div>
+  
+    <div class="details">
+      <p><strong>Name:</strong> {{ name }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Subject:</strong> {{ sub }}</p>
+    </div>
+  
+    <hr class="separator">
+  
+    <div class="center">
+      <p>Thank you for submitting your details!</p>
+    </div>
+  </div>
+  
+{% endblock body %}
+

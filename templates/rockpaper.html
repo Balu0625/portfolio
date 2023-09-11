@@ -1,7 +1,10 @@
+{% extends 'main.html'%}
 {% load static %}
 <!DOCTYPE html>
+{% block title%}Rock Paper Scissors{% endblock title%}
 
 <html>
+    {% block head%}
 <head>
     <title>Rock Paper Scissors</title>
     <style>
@@ -19,6 +22,7 @@
         .section {
             max-width: 800px;
     margin: 0 auto;
+    margin-top:50px;
     padding: 20px;
     background-color: rgba(245, 245, 245, 0.01);
     border-radius: 10px;
@@ -28,12 +32,16 @@
         button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #ff714a;
+            background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin: 10px;
+        }
+        button:hover{
+            background-color:#fff ;
+            color: #007bff;
         }
 
         .result {
@@ -44,6 +52,8 @@
         }
     </style>
 </head>
+{% endblock head%}
+{% block body%}
 <body style="background-image:url('{% static '/rps.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
     <div class="section">
     
@@ -103,6 +113,7 @@
     <div id="result" class="result"><b><b></b><b></b></b></div>
 
 </div>
+{% endblock body%}
 </body>
 
 </html>

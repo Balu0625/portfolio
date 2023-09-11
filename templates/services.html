@@ -8,8 +8,8 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f7f7f7;
-        color: #333;
+        background-color: #111; /* Dark background color */
+        color: #fff; /* Text color in dark mode */
     }
 
     h1 {
@@ -17,11 +17,12 @@
         text-align: center;
         margin-top: 50px;
         margin-bottom: 30px;
+        color: #fff; /* Text color in dark mode */
     }
 
     hr {
         border: none;
-        border-top: 2px solid #ddd;
+        border-top: 2px solid #007bff; /* Netflix blue color */
         margin: 30px auto;
         max-width: 500px;
     }
@@ -30,28 +31,30 @@
         font-size: 24px;
         margin-bottom: 10px;
         text-align: center;
+        color: #fff; /* Text color in dark mode */
     }
 
     a {
-        color: #333;
+        color: #007bff; /* Netflix blue color */
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
     a:hover {
-        color: #007bff;
+        color: #fff; /* Text color in dark mode on hover */
     }
 
     p {
         text-align: center;
         margin-bottom: 30px;
+        color: #fff; /* Text color in dark mode */
     }
 
     .service-container {
         max-width: 600px;
         margin: 0 auto;
         padding: 40px;
-        background-color: #fff;
+        background-color:rgba(0, 0, 0, 0.8886);; /* Dark container background */
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
@@ -64,13 +67,15 @@
     .service-container a {
         display: block;
         padding: 20px;
-        border: 1px solid #ddd;
+        border: 1px solid #444; /* Dark border color */
         border-radius: 5px;
         transition: background-color 0.3s ease;
+        color: #fff; /* Text color in dark mode */
     }
 
     .service-container a:hover {
-        background-color: #f7f7f7;
+        background-color: white; /* Slightly lighter background color on hover */
+        color:red;
     }
 
     .service-container p {
@@ -80,10 +85,12 @@
 {% endblock head %}
 
 {% block body %}
-<body style="background-image:url('{% static '/services.png' %}'); background-repeat: no-repeat; background-size: cover;">
+<body style="background-image:url('{% static '/japan.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
+
+        <div class="container">
+            
     <br>
     <br>
-    
     <div class="service-container">
         <h1>Services</h1>
         <hr>
@@ -91,22 +98,22 @@
             <h2><a href="rockpaper">Rock Paper Scissors</a></h2>
             <p>Let's Determine Who Wins Between You And The Computer.</p>
         </div>
-        <hr>
+        <br>
         <div class="service">
             <h2><a href="ser2/">Movie Recommendations</a></h2>
             <p>Will recommend you movies based on the genres you enter.</p>
         </div>
-        <hr>
+        <br>
         <div class="service">
             <h2><a href="ser3/diary">My Dear Diary</a></h2>
             <p>Your Personal Diary.</p>
         </div>
-        <hr>
+        <br>
         <div class="service">
             <h2><a href="todo">TO-DO List</a></h2>
             <p>For Efficient Time Management.</p>
         </div>
-        <hr>
+        
     </div>
     <br>
     <br>

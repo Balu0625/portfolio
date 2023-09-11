@@ -1,10 +1,13 @@
+{% extends 'main.html'%}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+    {%block head%}
+    {%block title%}Diary Entries{%endblock title%}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary Entries</title>
+   
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -90,13 +93,22 @@
             text-decoration: none;
             border-radius: 5px;
           }
+          .view-button:hover{
+
+            background-color: white;
+            color: green;
+
+          }
 
 
 
 
     </style>
 </head>
+{% endblock head%}
+{% block body%}
 <body>
+    <br>
     <h1 style="text-align: center; margin-bottom: 20px;">Diary Entries</h1>
     {%if entry %}
     {% for i in entry %}
@@ -130,6 +142,7 @@
         </div>
     </center>
     {% endif %}
-    <center><a href="/services/ser3/diary"><button class="view-button">Back</button></a></center>
+    <center><a href="/services/ser3/diary"><button class="view-button"><b>Back</b></button></a></center>
 </body>
+{% endblock body%}
 </html>

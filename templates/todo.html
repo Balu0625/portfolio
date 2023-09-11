@@ -1,11 +1,15 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block title %}To-Do{% endblock title %}
 <!DOCTYPE html>
 <html>
+    {% block head %}
 <head>
     <title>To-Do List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #475F8C;
+            background-color: black;
             margin: 0;
             padding: 0;
         }
@@ -77,6 +81,12 @@
             margin-top: 20px;
         }
 
+.back-link a:hover{
+    background-color: #fff;
+    color: #ff714a;
+}
+
+
         .back-link a {
             padding: 10px 20px;
             background-color: #ff714a;
@@ -84,10 +94,21 @@
             text-decoration: none;
             border-radius: 5px;
         }
+
+        form button[type="submit"]:hover{
+            background-color: #fff;
+            color: #ff714a;
+        }
+
     </style>
 </head>
-<body>
-    <h1 style="color:white;">To-Do List</h1>
+{% endblock head %}
+
+{% block body %}
+<body style="background-image:url('{% static '/todos.jpeg' %}'); background-repeat: no-repeat; background-size: cover;">
+    <br><br><br><br>
+
+    <h1 style="color:#F4ECF7;">TO DO LIST 🗒️</h1>
     <form method="post" action="{% url 'add_todo' %}">
         {% csrf_token %}
         <input type="text" name="task" placeholder="Enter a task" required>
@@ -109,4 +130,5 @@
         <a href="/services/">Back</a>
     </div>
 </body>
+{% endblock body %}
 </html>

@@ -1,9 +1,12 @@
+{% extends 'main.html' %}
 {% load static %}
 
 <!DOCTYPE html>
 <html>
+    {% block head%}
+    {% block title %}Movie Recommendations  {% endblock title %}
 <head>
-    <title>Movie Recommendations</title>
+    <title></title>
     <style>
         body {
             text-align: center;
@@ -12,20 +15,12 @@
             color: #000;
         }
 
-        #navbar {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-        }
+        
 
-        #navbar a {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 10px;
-        }
+        
 
         #main-content {
-            margin-top: 50px;
+            margin-top: 100px;
         }
 
         #genres-form {
@@ -87,11 +82,10 @@
         }
     </style>
 </head>
-<body style="background-image:url('{% static '/joel.jpg' %}'); background-repeat: no-repeat; background-size: cover;">
-    <div id="navbar">
-        <a href="/">Home</a>
-        <span style="font-weight: bold;">Movie Recommendations</span>
-    </div>
+{% endblock head%}
+{% block body%}
+<body style="background-image:url('{% static '/pspk.png' %}'); background-repeat: no-repeat; background-size: cover;">
+    
     <div id="main-content">
         <form action="moviere" id="genres-form">
             <label for="genres-input">Enter Your Favorite Genre:</label><br>
@@ -103,4 +97,5 @@
         </div>
     </div>
 </body>
+{% endblock body%}
 </html>

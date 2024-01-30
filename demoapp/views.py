@@ -4,7 +4,10 @@ from demoapp.movie import *
 from .models import *
 from django.contrib import messages
 import datetime
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
+
+
+
 
 
 #from django.views.decorators.csrf import csrf_protect
@@ -39,13 +42,13 @@ def services(request):
     return render(request,"services.html")
 
 
-@csrf_protect
+@csrf_exempt
 def todo(request):
     todos = Todo.objects.all()
     return render(request, 'todo.html', {'todos': todos})
 
 
-@csrf_protect
+@csrf_exempt
 def submitted(request):
     cont=Details(name=request.POST.get('name'),
          email=request.POST.get('email'),
@@ -102,8 +105,7 @@ def diary(request):
 
 
 
-
-@csrf_protect
+@csrf_exempt
 def add_todo(request):
     if request.method == 'POST':
         task = request.POST['task']
